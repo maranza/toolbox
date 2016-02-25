@@ -1,0 +1,73 @@
+VI
+Replace a word in vi
+:%s/FindMe/ReplaceME/g
+
+
+kitchenette
+
+
+#GIT
+#Résolution de rebase :
+git rebase origin/conso
+conflit :
+git co -- ours file
+git add file
+git rebase --continue
+
+#Ajout d'un repository sur un remote
+#Créer en amont le repo sur le remote
+git remote add origin remote repository URL
+
+
+#Suppression de tag :
+en local : git tag -d v2.10.1
+en remote : git push --delete origin tagname
+
+
+#Installer un package .deb
+sudo dpkg -i paquet.deb
+au besoin : man dpkg
+
+#Installer un rpm
+rpm -Uvh pentaho-kettle-5.4.0.5_lbc-1.x86_64.rpm
+
+#ssh & co:
+ssh -L  4141:data-redshift-qa:5439  52.18.80.191 -fN
+ssh -L  4242:data-redshift-prod:5439  52.18.80.191 -fN
+ssh -L  4343:vqa22.leboncoin.lan:5432  vqetl01 -fN
+ssh -L  7777:vqa23.leboncoin.lan:5432  vqetl01 -fN
+ssh -L  9090:vvcrm02.leboncoin.lan:3306  vqetl01 -fN
+ssh -L  8989:127.0.0.1:25   vqetl01 -fN #tunnel ssh pour forward le smtp
+
+#Connexion au Redshift de prod
+psql -U user_sba -h localhost -p 4242 dwhprod
+
+sqlContext.sparkContext.hadoopConfiguration.set("fs.s3a.access.key", s3AccessKey)
+sqlContext.sparkContext.hadoopConfiguration.set("fs.s3a.secret.key", s3SecretKey)
+val store_params_path = "s3a://leboncoin.fr-datalake-prod/platform/prod/databases/blocketdb/public/snapshot/66/store_params/parquet"
+val store_param_data = sqlContext.read.parquet(store_params_path)
+store_param_data.registerTempTable("store_params")
+
+
+val generic_store = "s3a://leboncoin.fr-data-staging-prod/work_manager/prod/666/generic/transform_store_master"
+sqlContext.read.parquet(generic_store).registerTempTable("store_master")
+
+Création du jar d'un projet
+mvn clean package
+
+aws s3 cp stores_sorted_8_1.txt s3://leboncoin.fr-datalake-dev/platform/sba/databases/blocketdb/public/snapshot/8/stores/csv/
+aws s3 help
+
+pyspark --jars data/git/data_brutus/spark_etl/target/spark-etl-1.1.0-SNAPSHOT.jar
+
+
+
+ALTER database data_em_dev OWNER TO data_em_dev
+
+create role data_em_dev
+with login password 'data_em_dev' ;
+
+
+curl -X GET http://data-brutus-elasticsearch01-qa.leboncoin.lan:9200/platform_qa2/store_event/_mapping?pretty
+
+curl -X POST http://data-brutus-elasticsearch01-qa.leboncoin.lan:9200/platform_qa2/store_event/_mapping -d @databases/indexer/platform/mapping_store_event.json
