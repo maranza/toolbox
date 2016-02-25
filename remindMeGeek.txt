@@ -1,10 +1,6 @@
-VI
+#VI
 Replace a word in vi
 :%s/FindMe/ReplaceME/g
-
-
-kitchenette
-
 
 #GIT
 #Résolution de rebase :
@@ -52,7 +48,8 @@ store_param_data.registerTempTable("store_params")
 val generic_store = "s3a://leboncoin.fr-data-staging-prod/work_manager/prod/666/generic/transform_store_master"
 sqlContext.read.parquet(generic_store).registerTempTable("store_master")
 
-Création du jar d'un projet
+#Maven
+#Création du jar d'un projet
 mvn clean package
 
 aws s3 cp stores_sorted_8_1.txt s3://leboncoin.fr-datalake-dev/platform/sba/databases/blocketdb/public/snapshot/8/stores/csv/
@@ -67,7 +64,6 @@ ALTER database data_em_dev OWNER TO data_em_dev
 create role data_em_dev
 with login password 'data_em_dev' ;
 
-
+#Elasti
 curl -X GET http://data-brutus-elasticsearch01-qa.leboncoin.lan:9200/platform_qa2/store_event/_mapping?pretty
-
 curl -X POST http://data-brutus-elasticsearch01-qa.leboncoin.lan:9200/platform_qa2/store_event/_mapping -d @databases/indexer/platform/mapping_store_event.json
