@@ -58,12 +58,17 @@ aws s3 help
 pyspark --jars data/git/data_brutus/spark_etl/target/spark-etl-1.1.0-SNAPSHOT.jar
 
 
+# SQL
+### Création de rôle
+`ALTER database data_em_dev OWNER TO data_em_dev`
 
-ALTER database data_em_dev OWNER TO data_em_dev
+`create role data_em_dev
+with login password 'data_em_dev' ;`
 
-create role data_em_dev
-with login password 'data_em_dev' ;
+### Liste des schémas d'une base
+\dn
 
-#Elasti
+
+#Elastic
 curl -X GET http://data-brutus-elasticsearch01-qa.leboncoin.lan:9200/platform_qa2/store_event/_mapping?pretty
 curl -X POST http://data-brutus-elasticsearch01-qa.leboncoin.lan:9200/platform_qa2/store_event/_mapping -d @databases/indexer/platform/mapping_store_event.json
