@@ -72,3 +72,6 @@ with login password 'data_em_dev' ;`
 #Elastic
 curl -X GET http://data-brutus-elasticsearch01-qa.leboncoin.lan:9200/platform_qa2/store_event/_mapping?pretty
 curl -X POST http://data-brutus-elasticsearch01-qa.leboncoin.lan:9200/platform_qa2/store_event/_mapping -d @databases/indexer/platform/mapping_store_event.json
+
+# Generate password
+pwgen -0BnC
