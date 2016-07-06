@@ -35,6 +35,14 @@ ssh -L  7777:vqa23.leboncoin.lan:5432  vqetl01 -fN
 ssh -L  9090:vvcrm02.leboncoin.lan:3306  vqetl01 -fN
 ssh -L  8989:127.0.0.1:25   vqetl01 -fN #tunnel ssh pour forward le smtp
 
+#Tips Kernel
+#Identify the kernel version
+uname -a
+#Upgrade
+#Download linux-headers & linux-image here : http://kernel.ubuntu.com/~kernel-ppa/mainline/
+dpkg-i linux-*
+reboot
+
 #Connexion au Redshift de prod
 psql -U user_sba -h localhost -p 4242 dwhprod
 
