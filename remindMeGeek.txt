@@ -28,12 +28,12 @@ au besoin : man dpkg
 rpm -Uvh pentaho-kettle-5.4.0.5_lbc-1.x86_64.rpm
 
 #ssh & co:
-ssh -L  4141:data-redshift-qa:5439  52.18.80.191 -fN
+ssh -L  25439:brutus-dwh-db.data.qa.leboncoin.io:5439 sshgw -p 222  -fN
 ssh -L  4242:data-redshift-prod:5439  52.18.80.191 -fN
-ssh -L  4343:vqa22.leboncoin.lan:5432  vqetl01 -fN
-ssh -L  7777:vqa23.leboncoin.lan:5432  vqetl01 -fN
-ssh -L  9090:vvcrm02.leboncoin.lan:3306  vqetl01 -fN
-ssh -L  8989:127.0.0.1:25   vqetl01 -fN #tunnel ssh pour forward le smtp
+ssh -L  4343:vqa22.leboncoin.lan:5432  vqetl01.leboncoin.lan -fN
+ssh -L  7777:vqa23.leboncoin.lan:5432  vqetl01.leboncoin.lan -fN
+ssh -L  9090:vvcrm02.leboncoin.lan:3306  vqetl01.leboncoin.lan -fN
+ssh -L  8989:127.0.0.1:25   vqetl01.leboncoin.lan -fN #tunnel ssh pour forward le smtp
 
 #Tips Kernel
 #Identify the kernel version
@@ -66,7 +66,7 @@ aws s3 help
 pyspark --jars data/git/data_brutus/spark_etl/target/spark-etl-1.1.0-SNAPSHOT.jar
 
 
-# SQL
+# PostgreSQL
 ### Création de rôle
 `ALTER database data_em_dev OWNER TO data_em_dev`
 
@@ -78,8 +78,19 @@ with login password 'data_em_dev' ;`
 
 
 #Elastic
-curl -X GET http://data-brutus-elasticsearch01-qa.leboncoin.lan:9200/platform_qa2/store_event/_mapping?pretty
-curl -X POST http://data-brutus-elasticsearch01-qa.leboncoin.lan:9200/platform_qa2/store_event/_mapping -d @databases/indexer/platform/mapping_store_event.json
+curl -X GET http://elasticsearch01.data.qa.leboncoin.io:9200/platform_qa2/store_master/_mapping?pretty
+curl -X POST http://elasticsearch01.data.qa.leboncoin.io:9200/platform_qa2/store_master/_mapping -d @databases/brutus/indexer/platform/mapping_store_master.json?pretty
+curl -X GET http://elasticsearch01.data.qa.leboncoin.io:9200/platform_qa2/store_master/_search?q=*&pretty
+curl -XGET http://elasticsearch01.data.qa.leboncoin.io:9200/platform_qa2/store_master/_search?q=store_id:987654321
+curl -XGET http://elasticsearch01.data.qa.leboncoin.io:9200/platform_qa2/store_master/_search?q=store_id:998885555
+curl -X DELETE http://elasticsearch01.data.qa.leboncoin.io:9200/platform_qa2/store_master/987654321
 
 # Generate password
 pwgen -0BnC
+
+
+knife data bag -z show security lbc_brutus  --secret-file ~/.security/encrypted_data_bag_secret
+
+
+Type tar -xvf yourfile.tar to extract the file to the current directory.
+Or tar -C /myfolder -xvf yourfile.tar to extract to another directory.
