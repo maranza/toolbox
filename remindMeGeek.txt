@@ -94,3 +94,7 @@ knife data bag -z show security lbc_brutus  --secret-file ~/.security/encrypted_
 
 Type tar -xvf yourfile.tar to extract the file to the current directory.
 Or tar -C /myfolder -xvf yourfile.tar to extract to another directory.
+
+# Python
+Remove compilation files
+find . -name *.pyc -type f -delete
