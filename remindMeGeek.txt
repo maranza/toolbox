@@ -79,6 +79,7 @@ with login password 'data_em_dev' ;`
 
 #Elastic
 curl -X GET http://elasticsearch01.data.qa.leboncoin.io:9200/platform_qa2/store_master/_mapping?pretty
+## Create a new index from a file mapping 
 curl -X POST http://elasticsearch01.data.qa.leboncoin.io:9200/platform_qa2/store_master/_mapping -d @databases/brutus/indexer/platform/mapping_store_master.json?pretty
 curl -X GET http://elasticsearch01.data.qa.leboncoin.io:9200/platform_qa2/store_master/_search?q=*&pretty
 curl -XGET http://elasticsearch01.data.qa.leboncoin.io:9200/platform_qa2/store_master/_search?q=store_id:987654321
