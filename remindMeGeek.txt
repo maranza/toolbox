@@ -99,3 +99,10 @@ Or tar -C /myfolder -xvf yourfile.tar to extract to another directory.
 # Python
 Remove compilation files
 find . -name *.pyc -type f -delete
+## Venv 
+Create a new venv 
+python -m venv [folder]
+Activate it 
+source bin/activate 
+Deactivate it
+deactivate
