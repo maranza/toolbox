@@ -3,6 +3,7 @@ DST2=/Volumes/FILESHARING/
 SRV1=bikette01.ipsyn.net
 SSH_USERNAME=bikette
 SAVING_FILENAME=$1
+MAILTO=$2
 
 echo $SAVING_FILENAME
 if [ -f $DST1 ]
@@ -33,9 +34,5 @@ if [ $result1 = $result2 ] && [ $result1 = $result3 ] && [ $result1 = KO ]
 then
   subject="File $SAVING_FILENAME not saved"
   body="Could not save $SAVING_FILENAME, no saving location available"
-  echo  $body | mail -s $subject steph.baltus@gmail.com
-else
-  subject="File $SAVING_FILENAME saved"
-  body="Save $SAVING_FILENAME, at least 1 saving location available"
-  echo  $body | mail -s "$subject" steph.baltus@gmail.com
+  echo  $body | mail -s "$subject" $MAILTO
 fi
