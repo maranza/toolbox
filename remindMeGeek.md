@@ -4,15 +4,15 @@ Replace a word in vi
 
 # GIT
 ## Résolution de rebase :
-`git rebase origin/dev`
-conflit :
-`git co -- ours [file]`
-`git add [file]`
-`git rebase --continue`
+`git rebase origin/dev`  
+conflit :  
+`git co -- ours [file]`  
+`git add [file]`  
+`git rebase --continue`  
 
 ## Ajout d'un repository sur un remote
-Create the repo on the git server
-`git remote add origin remote repository [URL]`
+Create the repo on the git server  
+`git remote add origin remote repository [URL]`  
 
 ## Deleting tag :
 * local : `git tag -d v2.10.1` 
