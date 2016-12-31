@@ -91,7 +91,11 @@ curl -XGET http://elasticsearch-server:9200/platform_qa2/store_master/_search?q=
 curl -X DELETE http://elasticsearch-server:9200:9200/platform_qa2/store_master/987654321
 
 # Generate password
+## Simple one
 pwgen -0BnC
+## Complicated one :) 
+pwgen -BCyn 16
+
 
 # Chef
 knife data bag -z show security lbc_brutus  --secret-file ~/.security/encrypted_data_bag_secret
