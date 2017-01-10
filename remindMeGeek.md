@@ -100,9 +100,9 @@ pwgen -BCyn 16
 # Chef
 knife data bag -z show security lbc_brutus  --secret-file ~/.security/encrypted_data_bag_secret
 
-# Python
-Remove compilation files
-find . -name *.pyc -type f -delete
+# Python helpers
+Remove compilation files  
+``find . -name *.pyc -type f -delete``
 ## Venv 
 Create a new venv  
 `python -m venv [folder]`  
