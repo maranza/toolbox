@@ -110,6 +110,14 @@ Activate it
 `source bin/activate`
 Deactivate it  
 `deactivate`
+## List all pip installed packages 
+```python
+import pip
+installed_packages = pip.get_installed_distributions()
+installed_packages_list = sorted(["%s==%s" % (i.key, i.version)
+     for i in installed_packages])
+print(installed_packages_list)
+```
 
 # Add zsh & oh-my-zsh on mac OS X 
 `brew install zsh`  
