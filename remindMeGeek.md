@@ -8,9 +8,9 @@ Replace a word in vi :
 conflit :  
 `git co -- ours [file]`  
 `git add [file]`  
-`git rebase --continue`
-build a zip of current branch, at most recent commit
-git archive --format=zip HEAD > <myapp>.zip
+`git rebase --continue`  
+build a zip of current branch, at most recent commit  
+`git archive --format=zip HEAD > <myapp>.zip`  
 
 ## Ajout d'un repository sur un remote
 Create the repo on the git server  
