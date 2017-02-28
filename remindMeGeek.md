@@ -120,6 +120,15 @@ installed_packages_list = sorted(["%s==%s" % (i.key, i.version)
      for i in installed_packages])
 print(installed_packages_list)
 ```
+## Unittest  
+### Basic launch  
+`python -m unittest`
+
+### Launch a specific Test Class 
+`python -m unittest test.test_query_computer_data.QueryComputerDataTest`
+
+### Launch a specific test
+`python -m unittest test.test_query_computer_data.QueryComputerDataTest.test_get_data_and_compare_to_floor`
 
 # Add zsh & oh-my-zsh on mac OS X 
 `brew install zsh`  
