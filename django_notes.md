@@ -1,6 +1,6 @@
 # Installation
 `sudo pip3 install Django==1.8`  
-(Latest release is 1.10.1, but the mooc is in 1.8.  
+(Latest release is 1.11.1, but the open classroom mooc is in 1.8.  
 Remember to go check the enhancements)  
 
 # Some theory
