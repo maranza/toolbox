@@ -133,3 +133,6 @@ print(installed_packages_list)
 # Add zsh & oh-my-zsh on mac OS X 
 `brew install zsh`  
 `curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh`
+
+# Encrypt a single value with ansible-vautl 
+`ansible-vault encrypt_string AKIAJPKX7AYP2O4PM4AQ  --vault-password-file .vault_pass.txt`
