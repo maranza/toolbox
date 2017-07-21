@@ -30,6 +30,8 @@ Create the repo on the git server
 ## Command line tips
 ### ssh & co:
 ssh -L  newPort:server:forwardedport tunnelmachine -p 222  -fN  
+#### Add ssh key to ssh-agent to avoid typing passphrase 
+ssh-add -K ~/.ssh/id_rsa
 
 ### Identify the kernel version
 uname -a
