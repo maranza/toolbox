@@ -138,3 +138,10 @@ print(installed_packages_list)
 
 # Encrypt a single value with ansible-vautl 
 `ansible-vault encrypt_string AKIAJPKX7AYP2O4PM4AQ  --vault-password-file .vault_pass.txt`
+
+
+# Heroku 
+`heroku logs -t -a jobdata`
+`heroku run rails c -a jobdata`
+`heroku restart -a jobdata`
+`heroku config:set -a jobdata DEPLOY_CONTEXT='heroku'`
