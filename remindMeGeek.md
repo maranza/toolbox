@@ -145,3 +145,8 @@ print(installed_packages_list)
 `heroku run rails c -a jobdata`
 `heroku restart -a jobdata`
 `heroku config:set -a jobdata DEPLOY_CONTEXT='heroku'`
+
+# Encoding
+Display file encoding   
+`file -bi {filename}`  
+
