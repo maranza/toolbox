@@ -150,3 +150,9 @@ print(installed_packages_list)
 Display file encoding   
 `file -bi {filename}`  
 
+# Add an insecure registry
+`cd  /etc/docker && touch daemon.json`
+`vi daemon.json`
+{
+"insecure-registries" : ["registry.com"]
+}
